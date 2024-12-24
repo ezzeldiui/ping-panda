@@ -1,33 +1,28 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { Providers } from "./components/providers"
-import { EB_Garamond } from "next/font/google"
-import { cn } from "@/utils"
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Providers } from "@components/providers";
+import { cn } from "@lib/utils";
 
-import "./globals.css"
+import "@styles/globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
-const eb_garamond = EB_Garamond({
-  subsets: ["latin"],
-  variable: "--font-heading",
-})
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "jStack App",
-  description: "Created using jStack",
+  title: "Ping Panda",
+  description: "realtime saas insights",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(inter.variable, eb_garamond.variable)}>
-      <body className="font-sans bg-brand-50 text-brand-950 antialiased">
+    <html lang="en" className={cn(inter.variable)}>
+      <body className="bg-brand-50 font-sans text-brand-950 antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>
-  )
+  );
 }
